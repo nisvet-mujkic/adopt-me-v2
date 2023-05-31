@@ -26,13 +26,20 @@ const Details = () => {
   const pet = results.data.pets[0];
 
   return (
-    <div className="details">
+    <div className="mx-auto w-10/12 rounded bg-orange-100 py-10 shadow-xl">
       <Carousel images={pet.images} />
-      <div>
-        <h1>{pet.name}</h1>
-        <h2>{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
-        <button onClick={() => setShowModal(true)}>Adopt {pet.name}</button>
-        <p>{pet.description}</p>
+      <div className="text-center">
+        <h1 className="text-6xl font-bold">{pet.name}</h1>
+        <h2 className="mt-2 text-2xl font-bold">{`${pet.animal} — ${pet.breed} — ${pet.city}, ${pet.state}`}</h2>
+        <button
+          className="mt-2 rounded border-none bg-orange-500 py-2 px-6 text-white shadow hover:opacity-90"
+          onClick={() => setShowModal(true)}
+        >
+          Adopt {pet.name}
+        </button>
+        <p className="mx-auto mt-4 w-10/12 text-lg font-bold">
+          {pet.description}
+        </p>
         {showModal ? (
           <Modal>
             <div>
